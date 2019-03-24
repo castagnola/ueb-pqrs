@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutes } from './app.routes';
-import { LoginComponent } from './login';
+import { LoginComponent } from './login/containers';
 import { AppWrapperComponent } from './app-wrapper/containers';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { LoginService } from './login/service';
 import { AppWrapperModule } from './app-wrapper/app-wrapper.module';
-
+import { RadicadoComponent } from './radicado/containers';
 
 
 
@@ -27,10 +27,10 @@ import { AppWrapperModule } from './app-wrapper/app-wrapper.module';
         BrowserAnimationsModule
     
     ],
-    declarations: [AppComponent, LoginComponent
+    declarations: [AppComponent, LoginComponent,RadicadoComponent
     ],
 
-    providers: [
+    providers: [LoginService
         
     ],
     bootstrap: [AppComponent]

@@ -1,12 +1,17 @@
 import {Routes, RouterModule} from '@angular/router';
-import { LoginComponent } from './login';
+import { LoginComponent } from './login/containers';
 import { AppWrapperComponent } from './app-wrapper/containers';
 import { AppWrapperModule } from './app-wrapper/app-wrapper.module';
+import { RadicadoComponent } from './radicado/containers';
 
 
 export const routes: Routes = [
-    {path: 'login', component: LoginComponent},
-    {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule'}
+    {path: '', redirectTo:'login',pathMatch:'full'},
+    {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule'},
+    {path:'login', component: LoginComponent},
+    {path: 'login/radicado', component: RadicadoComponent }
+
+
  
 ];
 export const AppRoutes = RouterModule.forRoot(routes);

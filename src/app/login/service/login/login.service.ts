@@ -16,6 +16,6 @@ export class LoginService {
 
     login(data : UsuarioModel): Observable<UsuarioModel> {
         return this.http
-            .post<UsuarioModel>(`${environment.apiUrl}/login`,data)
+            .post<UsuarioModel>(`${environment.apiUrl}/auth/login`,data)
     }
 }

@@ -1,7 +1,5 @@
 import {Routes, RouterModule} from '@angular/router';
 import { LoginComponent } from './login/containers';
-import { AppWrapperComponent } from './app-wrapper/containers';
-import { AppWrapperModule } from './app-wrapper/app-wrapper.module';
 import { RadicadoComponent } from './radicado/containers';
 
 

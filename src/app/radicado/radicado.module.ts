@@ -7,6 +7,7 @@ import * as fromContainers from './containers'
 import * as fromComponents from "./components";
 import { RadicadoService } from './service/radicado/radicado.service';
 import { RadicadoComponent } from './containers';
+import { AuxRadicadoService } from '../shared/services/radicado/auxRadicado.service';
 
 @NgModule({
   declarations: [        ...fromContainers.containers
@@ -16,7 +17,8 @@ import { RadicadoComponent } from './containers';
     CardModule
   ],
   providers:[
-    RadicadoService
+    RadicadoService,
+    AuxRadicadoService
   ],
   bootstrap: [...fromContainers.containers]
 

@@ -8,12 +8,13 @@ import { environment } from '../../../../environments/environment';
 /**Models */
 import { tipoPqrsModel } from '../../../shared/models/tipoPQRS.Model';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
+import { AuxRadicadoService } from '../../../shared/services/radicado/auxRadicado.service';
 
 
 @Injectable()
 export class RadicadoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auxRservice: AuxRadicadoService ) {}
 
   /**
    * Services to get all TipoPQRS
@@ -27,6 +28,9 @@ export class RadicadoService {
    * Service to Send the Radicado
    */
 
-  //  CreateRadicado(data:RadicadoModel,id:number)
+   CreateRadicado(data:RadicadoModel):Observable<RadicadoModel>{
+     this.auxRservice.transformRequestAuxRadicado(data);
+     return this.http.post<RadicadoModel>(`${environment.apiUrl}/radicado/create-radicado`,data)
+   }
 
 }

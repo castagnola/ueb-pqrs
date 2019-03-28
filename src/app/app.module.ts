@@ -18,6 +18,7 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
 import {ButtonModule} from 'primeng/button';
 import { RadicadoService } from './radicado/service/radicado/radicado.service';
 import {DropdownModule} from 'primeng/dropdown';
+import { AuxRadicadoService } from './shared/services/radicado/auxRadicado.service';
 
 
 
@@ -55,7 +56,7 @@ import {DropdownModule} from 'primeng/dropdown';
         RadicadoComponent
     ],
 
-    providers: [LoginService,RadicadoService
+    providers: [LoginService,RadicadoService,AuxRadicadoService
 
     ],
     bootstrap: [AppComponent]

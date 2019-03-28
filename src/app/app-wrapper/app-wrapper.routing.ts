@@ -23,7 +23,6 @@ export const ROUTES: Routes = [
         component: AppWrapperComponent,
         children: [
             { path: 'dasboard', component: DashboardDemoComponent },
-
             { path: 'sample', component: SampleDemoComponent },
             { path: 'forms', component: FormsDemoComponent },
             { path: 'data', component: DataDemoComponent },

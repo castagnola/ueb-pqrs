@@ -41,7 +41,7 @@ import { EmptyDemoComponent } from '../demo/view/emptydemo.component';
 import { FileDemoComponent } from '../demo/view/filedemo.component';
 import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
 //import { DocumentationComponent } from '../demo/view/documentation.component';
-import { LoginComponent } from '../login';
+import { LoginComponent } from '../login/containers';
 import { CarService } from '../demo/service/carservice';
 import { CountryService } from '../demo/service/countryservice';
 import { EventService } from '../demo/service/eventservice';

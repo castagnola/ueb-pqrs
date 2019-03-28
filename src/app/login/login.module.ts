@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {LoginComponent} from './login/login.component'
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './service/login/login.service';
 import { BrowserModule } from '@angular/platform-browser';
 
+import * as fromContainers from './containers'
 
 
 
@@ -12,16 +12,16 @@ import { BrowserModule } from '@angular/platform-browser';
         BrowserModule,
         FormsModule,
         ReactiveFormsModule
-      
+
     ],
-    declarations:[
-        LoginComponent,
-        
+    declarations: [
+        ...fromContainers.containers
+
     ],
     providers: [
         LoginService
-       
+
     ],
-    bootstrap: [LoginComponent]
+    bootstrap: [...fromContainers.containers]
 })
 export class LoginModule { }

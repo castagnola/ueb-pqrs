@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms'
-import { LoginService } from '../service/login/login.service';
+import { LoginService } from '../../service/login/login.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   disable: boolean;
   data: any;
 
-  constructor(private fb: FormBuilder, private loginService: LoginService ) { }
+  constructor(private fb: FormBuilder, private loginService: LoginService) { }
 
   ngOnInit() {
 
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
 
-      usuario: ["", Validators.required],
-      contrasena: ['', Validators.required]
+      identificacion: ["", Validators.required],
+      clave: ['', Validators.required]
     })
 
 
@@ -31,11 +31,14 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     console.log(this.form.value);
-    this.loginService.login(this.form.value).subscribe(response=>{
-      data =>console.log(response);
-      error=>console.log(error);
+    this.loginService.login(this.form.value).subscribe(response => {
+      data => console.log(response);
+      error => console.log(error);
     })
   }
 
+  handleResponse() {
+    
+  }
 
 }

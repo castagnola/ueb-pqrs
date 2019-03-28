@@ -1,0 +1,46 @@
+<div class="ui-g ui-fluid">
+  <div class="ui-g-12 ui-lg-12">
+    <!-- Left Side -->
+    <div class="card card-w-title">
+      <h1>
+        <i class="fa fa-file-text"> Crear Solicitud</i>
+      </h1>
+      <div class="ui-g form-group">
+        <form [formGroup]="form" (ngSubmit)='onSubmit()'>
+
+          <div class="ui-g-6 ui-fluid">
+            <p-calendar dateFormat="dd/mm/yy" placeholder="DateTime" formControlName="fecha" disabled="disabled">
+            </p-calendar>
+          </div>
+          <div class="ui-g-6 ui-fluid">
+            <input type="text" pInputText placeholder="Identificacion*" formControlName="identificacion">
+          </div>
+          <div class="ui-g-6 ui-fluid">
+            <input type="text" pInputText placeholder="Nombre* (minimo 5 letras)" formControlName="nombre">
+          </div>
+          <div class="ui-g-6 ui-fluid">
+            <input type="text" pInputText placeholder="Correo*" formControlName="correo">
+          </div>
+          <div class="ui-g-6 ui-fluid">
+            <input type="text" pInputText placeholder="Telefono*" formControlName="telefono">
+          </div>
+          <div class="ui-g-6 ui-fluid" style="margin-bottom:10px">
+            <p-dropdown [options]="tipoPqrs" formControlName="tipo_pqrs" optionLabel="nombre"
+              placeholder="Seleccione un tipo de PQRS" [autoWidth]="false" appendTo="body">
+            </p-dropdown>
+          </div>
+          <div class="ui-g-12 ui-fluid">
+            <textarea [rows]="3" [cols]="30" pInputTextarea placeholder="Comentarios" autoResize="autoResize"
+              formControlName='comentarios'></textarea>
+          </div>
+          <div class="ui-g-12 ui-fluid" style="text-align:center">
+            <button pButton type="submit" icon="pi pi-check" label="Enviar"
+              style="margin-bottom:10px; width: 100px; float: right;" [disabled]=!form.valid></button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+{{form.value |json}}

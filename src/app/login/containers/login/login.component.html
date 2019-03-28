@@ -33,10 +33,10 @@
                 </div>
                 <div class="ui-g-12">
                     <input type="text" formControlName='identificacion' autocomplete="off"
-                        class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Username" required>
+                        class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="ID" required>
                 </div>
                 <div class="ui-g-12">
-                    <input type="password" formControlName='clave' autocomplete="off"
+                    <input type="password" formControlName='password' autocomplete="off"
                         class="ui-inputtext ui-corner-all ui-state-default ui-widget" placeholder="Password" required>
                 </div>
                 <div class="ui-g-12 chkbox-container">
@@ -48,6 +48,13 @@
                         class="ui-button green-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
                         <span class="ui-button-icon-left ui-c fa fa-fw fa-user"></span>
                         <span class="ui-button-text ui-c">Sign In</span>
+                    </button>
+                </div>
+                <div class="ui-g-12 button-container">
+                    <button type="button"(click)="onRegister()"
+                        class="ui-button green-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
+                        <span class="ui-button-icon-left ui-c fa fa-fw fa-user"></span>
+                        <span class="ui-button-text ui-c">Register</span>
                     </button>
                 </div>
                 <div class="ui-g-12 button-container">

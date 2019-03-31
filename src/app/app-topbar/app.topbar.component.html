@@ -5,7 +5,7 @@
     <a class="morpheus-logo-link" href="#">
         <img src="assets/layout/images/morpheus-logo-{{app.theme}}.svg" class="morpheus-logo" />
         <span class="morpheus-logo-text">
-            morpheus
+            PQRS
         </span>
     </a>
 
@@ -14,13 +14,13 @@
     </a>
 
     <ul class="topbar-menu fadeInDown" [ngClass]="{'topbar-menu-visible': app.topbarMenuActive}">
-        <li #search class="search-item" [ngClass]="{'active-topmenuitem':app.activeTopbarItem === search}"
+        <!-- <li #search class="search-item" [ngClass]="{'active-topmenuitem':app.activeTopbarItem === search}"
             (click)="app.onTopbarSearchItemClick($event)">
             <span class="md-inputfield">
                 <input type="text" pInputText placeholder="Search">
                 <i class="fa fa-search"></i>
             </span>
-        </li>
+        </li> -->
         <li #notifications [ngClass]="{'active-topmenuitem':app.activeTopbarItem === notifications}">
             <a href="#" (click)="app.onTopbarItemClick($event,notifications)">
                 <i class="topbar-icon fa fa-fw fa-dot-circle-o"></i>
@@ -156,7 +156,7 @@
                     </a>
                 </li>
                 <li role="menuitem">
-                    <a href="#" (click)="app.onTopbarSubItemClick($event)">
+                    <a  *ngIf="loggedIn" href="#" (click)="logout($event)">
                         <i class="fa fa-fw fa-sign-out"></i>
                         <span>Logout</span>
                     </a>

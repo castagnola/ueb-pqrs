@@ -25,7 +25,7 @@ import { AppComponent } from '../app.component';
 import { AppMenuComponent, AppSubMenuComponent } from '../app.menu.component';
 import { AppSideBarComponent } from '../app.sidebar.component';
 import { AppSideBarTabContentComponent } from '../app.sidebartabcontent.component';
-import { AppTopBarComponent } from '../app.topbar.component';
+import { AppTopBarComponent } from '../app-topbar/app.topbar.component';
 //import { AppFooterComponent } from '../app.footer.component';
 import { DashboardDemoComponent } from '../demo/view/dashboarddemo.component';
 import { SampleDemoComponent } from '../demo/view/sampledemo.component';

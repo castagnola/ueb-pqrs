@@ -19,6 +19,8 @@ import {ButtonModule} from 'primeng/button';
 import { RadicadoService } from './radicado/service/radicado/radicado.service';
 import {DropdownModule} from 'primeng/dropdown';
 import { AuxRadicadoService } from './shared/services/radicado/auxRadicado.service';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 
@@ -45,7 +47,9 @@ import { AuxRadicadoService } from './shared/services/radicado/auxRadicado.servi
         AutoCompleteModule,
         InputTextareaModule,
         ButtonModule,
-        DropdownModule
+        DropdownModule,
+        MessagesModule,
+        MessageModule
         
 
 

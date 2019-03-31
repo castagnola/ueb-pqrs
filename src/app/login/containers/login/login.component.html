@@ -20,6 +20,9 @@
 <!-- 3. Display the application -->
 
 <body class="login-body">
+    <div class="ui-g-3">
+        <p-messages [(value)]="msgs"></p-messages>
+    </div>
     <div class="login-panel ui-fluid">
         <form [formGroup]='form' (ngSubmit)="onSubmit()">
             <div class="ui-g login-container" style="padding-bottom: 20px;">
@@ -44,54 +47,33 @@
                     <label for="remember-me">Remember Me</label>
                 </div>
                 <div class="ui-g-12 button-container">
-                    <button type="submit"
+                    <button type="submit" [disabled]='!form.valid'
                         class="ui-button green-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
                         <span class="ui-button-icon-left ui-c fa fa-fw fa-user"></span>
                         <span class="ui-button-text ui-c">Sign In</span>
                     </button>
                 </div>
                 <div class="ui-g-12 button-container">
-                    <button type="button"(click)="onRegister()"
+                    <button type="button" [disabled]='!form.valid' (click)="onRegister()"
                         class="ui-button green-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
-                        <span class="ui-button-icon-left ui-c fa fa-fw fa-user"></span>
+                        <span class="ui-button-icon-left ui-c fa fa-sign-in"></span>
                         <span class="ui-button-text ui-c">Register</span>
                     </button>
                 </div>
                 <div class="ui-g-12 button-container">
                     <button type="button"
-                        class="ui-button blue-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
+                        class="ui-button blue-btn raised-btn ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+                        style=" background-color: rgb(238, 130, 1); ">
                         <span class="ui-button-icon-left ui-c fa fa-fw fa-exclamation-triangle"></span>
                         <span class="ui-button-text ui-c" routerLink='radicado'> Generar PQRS</span>
                     </button>
-
-
                 </div>
             </div>
-
             <div class="stripe"></div>
             <p style="margin-left: -17px;">Don't you have an account? <a href="#"> Register here </a></p>
             <div class="stripe"></div>
-
-            <!-- <div class="ui-g login-container" style="padding-top: 10px;">
-                <div class="ui-g-12">
-                    <h2>Social Login</h2>
-                </div>
-                <div class="ui-g-12 button-container">
-                    <button type="button" class="ui-button facebook-btn raised-btn  ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
-                        <span class="ui-button-icon-left ui-c fa fa-fw fa-facebook"></span>
-                        <span class="ui-button-text ui-c">Facebook</span>
-                    </button>
-                </div>
-                 <div class="ui-g-12 button-container">
-                     <button type="button" class="ui-button twitter-btn raised-btn  ui-widget ui-state-default ui-corner-all ui-button-text-icon-left">
-                        <span class="ui-button-icon-left ui-c fa fa-fw fa-twitter"></span>
-                        <span class="ui-button-text ui-c">Twitter</span>
-                    </button>
-                </div> 
-            </div> -->
         </form>
-
     </div>
 </body>
-
+{{form.value |json}}
 </html>

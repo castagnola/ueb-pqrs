@@ -3,7 +3,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
-import { AppTopBarComponent } from './app.topbar.component';
+import { AppTopBarComponent } from './app-topbar/app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppSideBarComponent } from './app.sidebar.component';
 import { AppSideBarTabContentComponent } from './app.sidebartabcontent.component';

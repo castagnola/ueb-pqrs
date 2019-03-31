@@ -17,4 +17,9 @@ export class LoginService {
         return this.http
             .post<UsuarioModel>(`${environment.apiUrl}/auth/login`,data)
     }
+
+    register(data : UsuarioModel): Observable<UsuarioModel> {
+        return this.http
+            .post<UsuarioModel>(`${environment.apiUrl}/auth/singup`,data)
+    }
 }

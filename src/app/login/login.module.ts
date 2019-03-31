@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginService } from './service/login/login.service';
 import { BrowserModule } from '@angular/platform-browser';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+
 
 import * as fromContainers from './containers'
 
@@ -11,11 +14,13 @@ import * as fromContainers from './containers'
     imports: [
         BrowserModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MessagesModule,
+        MessageModule
 
     ],
     declarations: [
-        ...fromContainers.containers
+        ...fromContainers.containers,
 
     ],
     providers: [

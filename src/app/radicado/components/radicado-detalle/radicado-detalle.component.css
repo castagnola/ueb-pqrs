@@ -1,15 +1,9 @@
-/* input{
-    height: 100%;
-    width: 100%
-} */
 h1{
     text-align: center;
     background-color: rgba(136,171,12,0.9);
-    /* background-color: rgb(238, 130, 1); */ 
+    /* background-color: rgb(238, 130, 1);  */
     color: white;
     font-family: monospace;
     font-size: 200%;
 }
-alert{
-    color: red
-}
+

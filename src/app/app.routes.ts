@@ -1,12 +1,14 @@
 import {Routes, RouterModule} from '@angular/router';
 import { LoginComponent } from './login/containers';
 import { RadicadoComponent } from './radicado/containers';
+import { BeforeLoginService } from './login/service/before-login/before-login.service';
+import { AfterLoginService } from './login/service/after-login/after-login.service';
 
 
 export const routes: Routes = [
-    {path: '', redirectTo:'login',pathMatch:'full'},
-    {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule'},
-    {path:'login', component: LoginComponent},
+    {path: '', redirectTo:'app',pathMatch:'full'},
+    {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule',canActivate:[AfterLoginService]},
+    {path:'login', component: LoginComponent,canActivate:[BeforeLoginService]},
     {path: 'login/radicado', component: RadicadoComponent }
 
 

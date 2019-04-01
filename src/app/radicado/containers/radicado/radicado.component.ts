@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { RadicadoDetalleComponent } from '../../components';
 import { RadicadoService } from '../../service/radicado/radicado.service';
+import { SnotifyModule, SnotifyService } from 'ng-snotify';
+
 
 /**Models */
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
@@ -12,12 +14,13 @@ import { tipoPqrsModel } from '../../../shared/models/tipoPQRS.Model';
   styleUrls: ['./radicado.component.css']
 })
 export class RadicadoComponent implements OnInit {
+  
   /**
    * Atributos
    */
   tipoPqrs: tipoPqrsModel;
 
-  constructor(private radicadoService: RadicadoService) { }
+  constructor(private radicadoService: RadicadoService,private notify:SnotifyService) { }
 
   /**
    * Properties
@@ -44,8 +47,17 @@ export class RadicadoComponent implements OnInit {
     })
   }
 
-  onCreateRadicado(){
-    // this.radicadoService
+  onCreateRadicado(event:RadicadoModel){
+
+    this.radicadoService.CreateRadicado(event).subscribe(
+      data=> this.handleResponse(data),
+      error=> this.notify.error(error.error.error)
+      );
   }
+  handleResponse(data) {
+
+  console.log(data)
+  }
+
 
 }

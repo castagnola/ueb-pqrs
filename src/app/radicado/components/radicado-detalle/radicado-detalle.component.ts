@@ -45,7 +45,7 @@ export class RadicadoDetalleComponent implements OnInit {
       fecha: [new Date()],
       identificacion: ['', Validators.required],
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
-      correo: ['', Validators.email],
+      correo: ['', [Validators.required, Validators.email]],
       telefono: ['', Validators.required],
       tipo_pqrs: ['', Validators.required],
       comentarios: ['']
@@ -67,7 +67,7 @@ export class RadicadoDetalleComponent implements OnInit {
         id_tipo_pqrs: this.form.value.tipo_pqrs.id,
         comentarios: this.form.value.comentarios
       }
-      console.log(radicado);
+      console.error(radicado);
       this.onCreateRadicado.emit(radicado);
 
     }

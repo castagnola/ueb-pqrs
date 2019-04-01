@@ -21,6 +21,7 @@ import {DropdownModule} from 'primeng/dropdown';
 import { AuxRadicadoService } from './shared/services/radicado/auxRadicado.service';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import{SnotifyModule, ToastDefaults, SnotifyService} from 'ng-snotify';
 
 
 
@@ -49,7 +50,8 @@ import {MessageModule} from 'primeng/message';
         ButtonModule,
         DropdownModule,
         MessagesModule,
-        MessageModule
+        MessageModule,
+        SnotifyModule
         
 
 
@@ -60,8 +62,8 @@ import {MessageModule} from 'primeng/message';
         RadicadoComponent
     ],
 
-    providers: [LoginService,RadicadoService,AuxRadicadoService
-
+    providers: [LoginService,RadicadoService,AuxRadicadoService,
+        {provide: 'SnotifyToastConfig',useValue:ToastDefaults},SnotifyService
     ],
     bootstrap: [AppComponent]
 })

@@ -19,29 +19,28 @@ import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.compon
 
 export const ROUTES: Routes = [
     {
-        path: '',
-        component: AppWrapperComponent,
-        children: [
-            { path: 'dasboard', component: DashboardDemoComponent },
-            { path: 'sample', component: SampleDemoComponent },
-            { path: 'forms', component: FormsDemoComponent },
-            { path: 'data', component: DataDemoComponent },
-            { path: 'panels', component: PanelsDemoComponent },
-            { path: 'overlays', component: OverlaysDemoComponent },
-            { path: 'menus', component: MenusDemoComponent },
-            { path: 'messages', component: MessagesDemoComponent },
-            { path: 'misc', component: MiscDemoComponent },
-            { path: 'empty', component: EmptyDemoComponent },
-            { path: 'charts', component: ChartsDemoComponent },
-            { path: 'file', component: FileDemoComponent },
-            { path: 'utils', component: UtilsDemoComponent },
-            { path: 'documentation', component: DocumentationComponent }
-        ]
-    },
-            //
+       path: '',  component: AppWrapperComponent,
+       children:[  
+       { path: 'dasboard', component: DashboardDemoComponent },
+       { path: 'sample', component: SampleDemoComponent },
+       { path: 'forms', component: FormsDemoComponent },
+       { path: 'data', component: DataDemoComponent },
+       { path: 'panels', component: PanelsDemoComponent },
+       { path: 'overlays', component: OverlaysDemoComponent },
+       { path: 'menus', component: MenusDemoComponent },
+       { path: 'messages', component: MessagesDemoComponent },
+       { path: 'misc', component: MiscDemoComponent },
+       { path: 'empty', component: EmptyDemoComponent },
+       { path: 'charts', component: ChartsDemoComponent },
+       { path: 'file', component: FileDemoComponent },
+       { path: 'utils', component: UtilsDemoComponent },
+       { path: 'documentation', component: DocumentationComponent }]},
+         
+
             
         
     
 ];
 
-export const AppWrapperRoutes = RouterModule.forChild(ROUTES);
+export const AppWrapperRoutes:ModuleWithProviders = RouterModule.forChild(ROUTES);
+

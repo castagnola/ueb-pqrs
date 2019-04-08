@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { RadicadoDetalleComponent } from '../../components';
 import { RadicadoService } from '../../service/radicado/radicado.service';
 import { SnotifyModule, SnotifyService } from 'ng-snotify';
+import { Message } from 'primeng/primeng';
 
 
 /**Models */
@@ -19,6 +20,11 @@ export class RadicadoComponent implements OnInit {
    * Atributos
    */
   tipoPqrs: tipoPqrsModel;
+  msgs: Message[] = [];
+  data: any;
+
+  public response;
+
 
   constructor(private radicadoService: RadicadoService,private notify:SnotifyService) { }
 
@@ -41,7 +47,7 @@ export class RadicadoComponent implements OnInit {
   getPQRS() {
     return this.radicadoService.getTipoPQRS().subscribe(response => {
       this.tipoPqrs = response;
-      data => console.log(response);
+      data => console.log(response);  
       error => console.log(error)
 
     })
@@ -50,13 +56,17 @@ export class RadicadoComponent implements OnInit {
   onCreateRadicado(event:RadicadoModel){
 
     this.radicadoService.CreateRadicado(event).subscribe(
-      data=> this.handleResponse(data),
+      data => {
+        this.msgs = [];
+        this.msgs.push({ severity: 'success', summary: 'Ingreso exitoso!', detail: '' });
+        this.handleResponse(data);
+      },
       error=> this.notify.error(error.error.error)
       );
   }
-  handleResponse(data) {
-
-  console.log(data)
+  
+  handleResponse(response) {
+  console.log(response)
   }
 
 

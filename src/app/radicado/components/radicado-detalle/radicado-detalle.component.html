@@ -1,13 +1,14 @@
 <div class="ui-g ui-fluid">
   <div class="ui-g-12 ui-lg-12">
     <!-- Left Side -->
+
     <div class="card card-w-title">
-      <h1>
-        <i class="fa fa-file-text"> Crear Solicitud</i>
+      <h1 ui-g-12 ui-lg-12>
+        <i class="fa fa-file-text "> Crear Solicitud</i>
       </h1>
       <div class="ui-g form-group">
+          <p-messages [(value)]="msgs"></p-messages>
         <form [formGroup]="form" (ngSubmit)='onSubmit()'>
-
           <div class="ui-g-6 ui-fluid">
             <p-calendar dateFormat="dd/mm/yy" placeholder="DateTime" formControlName="fecha" disabled="disabled">
             </p-calendar>
@@ -15,8 +16,9 @@
           <div class="ui-g-6 ui-fluid">
             <input type="text" pInputText placeholder="Identificacion*" formControlName="identificacion">
           </div>
+
           <div class="ui-g-6 ui-fluid">
-            <input type="text" pInputText placeholder="Nombre* (minimo 5 letras)" formControlName="nombre">
+            <input type="text" pInputText placeholder="Nombre*" formControlName="nombre">
           </div>
           <div class="ui-g-6 ui-fluid">
             <input type="text" pInputText placeholder="Correo*" formControlName="correo">
@@ -35,12 +37,24 @@
           </div>
           <div class="ui-g-12 ui-fluid" style="text-align:center">
             <button pButton type="submit" icon="pi pi-check" label="Enviar"
-              style="margin-bottom:10px; width: 100px; float: right;" [disabled]=!form.valid></button>
+              style="margin-bottom:10px; width: 100px; float: right;" ></button>
           </div>
-        </form>
 
+        </form>
+        <div style="margin-top:30px;">
+          <p-message *ngIf="form.controls['identificacion'].touched && !form.controls['identificacion'].valid"
+            style="height: 10px" severity="error"
+            text="Campo Identificación, no puede contener letras, minimo 6 numeros, maximo 11"></p-message>
+          <p-message *ngIf="form.controls['nombre'].touched && !form.controls['nombre'].valid" severity="error"
+            text="Campo Nombre, minimo 5 letras"></p-message>
+          <p-message *ngIf="form.controls['correo'].touched && !form.controls['correo'].valid" severity="error"
+            text="Favor digita una dirección valida"></p-message>
+          <p-message *ngIf="form.controls['telefono'].touched && !form.controls['telefono'].valid" severity="error"
+            text="Campo Telefono, solo puede contener numeros"></p-message>
+          <p-message *ngIf="form.controls['comentarios'].touched && !form.controls['comentarios'].valid"
+            severity="error" text="Favor agregar una descripción valida"></p-message>
+        </div>
       </div>
     </div>
   </div>
 </div>
-{{form.value |json}}

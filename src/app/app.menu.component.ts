@@ -46,15 +46,15 @@ export class AppMenuComponent implements OnInit {
                 label: 'Components', icon: 'fa fa-fw fa-sitemap', badge: '10', badgeStyleClass: 'orange-badge',
                 items: [
                     {label: 'Sample Page', icon: 'fa fa-fw fa-columns', routerLink: ['/sample']},
-                    {label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['/forms']},
-                    {label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['/data']},
-                    {label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['/panels']},
-                    {label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['/overlays']},
-                    {label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['/menus']},
-                    {label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['/messages']},
-                    {label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['/charts']},
-                    {label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['/file']},
-                    {label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['/misc']}
+                    {label: 'Forms', icon: 'fa fa-fw fa-code', routerLink: ['forms']},
+                    {label: 'Data', icon: 'fa fa-fw fa-table', routerLink: ['data']},
+                    {label: 'Panels', icon: 'fa fa-fw fa-list-alt', routerLink: ['panels']},
+                    {label: 'Overlays', icon: 'fa fa-fw fa-square', routerLink: ['overlays']},
+                    {label: 'Menus', icon: 'fa fa-fw fa-minus-square-o', routerLink: ['menus']},
+                    {label: 'Messages', icon: 'fa fa-fw fa-circle-o-notch', routerLink: ['messages']},
+                    {label: 'Charts', icon: 'fa fa-fw fa-area-chart', routerLink: ['charts']},
+                    {label: 'File', icon: 'fa fa-fw fa-arrow-circle-o-up', routerLink: ['file']},
+                    {label: 'Misc', icon: 'fa fa-fw fa-user-secret', routerLink: ['misc']}
                 ]
             },
             {label: 'Landing Page', icon: 'fa fa-fw fa-certificate', url: 'assets/pages/landing.html', target: '_blank'},

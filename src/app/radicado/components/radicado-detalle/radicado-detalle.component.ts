@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
 import { tipoPqrsModel } from '../../../shared/models/tipoPQRS.Model';
+import { Message } from 'primeng/primeng';
 
 @Component({
   selector: 'app-radicado-detalle',
@@ -15,6 +16,7 @@ export class RadicadoDetalleComponent implements OnInit {
     */
 
   form: FormGroup
+  msgs: Message[] = [];
 
   /**
    * Events
@@ -43,12 +45,12 @@ export class RadicadoDetalleComponent implements OnInit {
   createForm() {
     this.form = this.fb.group({
       fecha: [new Date()],
-      identificacion: ['', Validators.required],
+      identificacion: ['', Validators.compose([Validators.required,Validators.pattern(/^[0-9]\d{5,10}$/)])],
       nombre: ['', Validators.compose([Validators.required, Validators.minLength(5)])],
       correo: ['', [Validators.required, Validators.email]],
-      telefono: ['', Validators.required],
+      telefono: ['', Validators.compose([Validators.required,Validators.pattern(/^[0-9]\d{5,10}$/)])],
       tipo_pqrs: ['', Validators.required],
-      comentarios: ['']
+      comentarios: ['', Validators.required,]
     })
   }
 
@@ -67,7 +69,8 @@ export class RadicadoDetalleComponent implements OnInit {
         id_tipo_pqrs: this.form.value.tipo_pqrs.id,
         comentarios: this.form.value.comentarios
       }
-      console.error(radicado);
+     
+      // console.error(radicado);
       this.onCreateRadicado.emit(radicado);
 
     }

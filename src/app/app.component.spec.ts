@@ -5,8 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { AppTopBarComponent } from './app-topbar/app.topbar.component';
 import { AppFooterComponent } from './app.footer.component';
-import { AppSideBarComponent } from './app.sidebar.component';
-import { AppSideBarTabContentComponent } from './app.sidebartabcontent.component';
+import { AppSideBarComponent } from './app-sidebar/app.sidebar.component';
+import { AppSideBarTabContentComponent } from './app-sidebar/app.sidebartabcontent.component';
 import { AppMenuComponent, AppSubMenuComponent } from './app.menu.component';
 import { ScrollPanelModule} from 'primeng/primeng';
 

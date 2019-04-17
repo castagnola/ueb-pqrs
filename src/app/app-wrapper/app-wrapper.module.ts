@@ -51,12 +51,12 @@ import { AppWrapperRoutes } from './app-wrapper.routing';
 import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.component';
 import { DocumentationComponent } from '../demo/view/documentation.component';
 import { AppFooterComponent } from '../app.footer.component';
-import { AppModule } from '../app.module';
-
+import { AppMenuRadicadoComponent } from '../app-menu-radicado/app-menu-radicado.component';
+import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
 @NgModule({
-  imports: [
-    CommonModule,
-      ReactiveFormsModule,
+    imports: [
+      CommonModule,    
+    ReactiveFormsModule,
       FormsModule,
       AppWrapperRoutes,
       HttpClientModule,
@@ -151,7 +151,10 @@ import { AppModule } from '../app.module';
       FileDemoComponent,
       UtilsDemoComponent,
       DocumentationComponent,
-      AppWrapperComponent
+      AppWrapperComponent,
+      AppMenuRadicadoComponent,
+      DashboardRadicadoComponent,
+
 
   ],
 

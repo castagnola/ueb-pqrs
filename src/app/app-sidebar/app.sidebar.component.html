@@ -1,39 +1,62 @@
-<div class="layout-sidebar" [ngStyle]="{'overflow':app.sidebarActive ? 'hidden' : 'visible'}" (click)="app.onSidebarClick($event)">
+<div class="layout-sidebar" [ngStyle]="{'overflow':app.sidebarActive ? 'hidden' : 'visible'}"
+    (click)="app.onSidebarClick($event)">
     <div class="layout-tabmenu">
         <ul class="layout-tabmenu-nav">
             <li [ngClass]="{'active-item':app.activeTabIndex === 0}">
-                <a href="#" class="tabmenuitem-link" (click)="app.onTabClick($event, 0)"><i class="fa fa-folder-open"></i></a>
+                <a href="#" class="tabmenuitem-link" (click)="app.onTabClick($event, 0)"><i
+                        class="fa fa-folder-open"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Features</div>
                 </div>
             </li>
-            <li [ngClass]="{'active-item':app.activeTabIndex === 1}">
-                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 1)"><i class="fa fa-calendar-o"></i></a>
+           <!-- <li [ngClass]="{'active-item':app.activeTabIndex === 1}">
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 1)"><i
+                        class="fa fa-calendar-o"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Inbox</div>
                 </div>
             </li>
+
             <li [ngClass]="{'active-item':app.activeTabIndex === 2}">
-                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 2)"><i class="fa fa-calendar"></i></a>
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 2)"><i
+                        class="fa fa-calendar"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Calendar</div>
                 </div>
             </li>
             <li [ngClass]="{'active-item':app.activeTabIndex === 3}">
-                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 3)"><i class="fa fa-image"></i></a>
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 3)"><i
+                        class="fa fa-image"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Projects</div>
                 </div>
             </li>
             <li [ngClass]="{'active-item':app.activeTabIndex === 4}">
-                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 4)"><i class="fa fa-language"></i></a>
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 4)"><i
+                        class="fa fa-language"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Updates</div>
+                </div>
+            </li> -->
+            <li [ngClass]="{'active-item':app.activeTabIndex === 5}">
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event,5 )"><i
+                        class="fa fa-cog"></i></a>
+                <div class="layout-tabmenu-tooltip">
+                    <div class="layout-tabmenu-tooltip-arrow"></div>
+                    <div class="layout-tabmenu-tooltip-text">Gestión</div>
+                </div>
+            </li>
+            <li [ngClass]="{'active-item':app.activeTabIndex === 6}">
+                <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event,6)"><i
+                        class="fa fa-book"></i></a>
+                <div class="layout-tabmenu-tooltip">
+                    <div class="layout-tabmenu-tooltip-arrow"></div>
+                    <div class="layout-tabmenu-tooltip-text">Radicado</div>
                 </div>
             </li>
         </ul>
@@ -51,7 +74,7 @@
                     <span>INBOX</span>
                 </div>
                 <app-sidebarTabContent>
-                    <div class="inbox-tab">
+                    <!-- <div class="inbox-tab">
                         <ul>
                             <li class="clearfix">
                                 <img src="assets/layout/images/avatar1.png" alt="" width="45">
@@ -98,12 +121,16 @@
                                     <span class="inbox-label">General</span>
                                     <span class="inbox-label-badge">5</span>
                                 </li>
+                                <li class="clearfix">
+                                    <span class="inbox-label">Radicado</span>
+                                    <span class="inbox-label-badge">6</span>
+                                </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </app-sidebarTabContent>
             </div>
-            <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 2}">
+             <!-- <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 2}">
                 <div class="layout-submenu-title clearfix">
                     <span>CALENDAR</span>
                 </div>
@@ -157,7 +184,7 @@
                         </ul>
                     </div>
                 </app-sidebarTabContent>
-            </div>
+            </div> 
             <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 3}">
                 <div class="layout-submenu-title clearfix">
                     <span>PROJECTS</span>
@@ -165,46 +192,46 @@
                 <app-sidebarTabContent>
                     <div class="projects-tab">
                         <ul>
-                          <li class="clearfix">
-                              <i class="fa fa-github"></i>
-                              <span class="project-title">GitHub Tasks</span>
-                              <span>3 open, 4 closed</span>
-                              <div class="project-progressbar">
-                                  <div class="project-progressbar-value" style="width: 50%"></div>
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <i class="fa fa-youtube"></i>
-                              <span class="project-title">YouTube Videos</span>
-                              <span>12 new, 2 subscribers</span>
-                              <div class="project-progressbar">
-                                  <div class="project-progressbar-value" style="width: 20%"></div>
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <i class="fa fa-twitter"></i>
-                              <span class="project-title">Twitter Posts</span>
-                              <span>24 new messages</span>
-                              <div class="project-progressbar">
-                                  <div class="project-progressbar-value" style="width: 65%"></div>
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <i class="fa fa-facebook"></i>
-                              <span class="project-title">Facebook Messages</span>
-                              <span>8 total, 4 unread</span>
-                              <div class="project-progressbar">
-                                  <div class="project-progressbar-value" style="width: 80%"></div>
-                              </div>
-                          </li>
-                          <li class="clearfix">
-                              <i class="fa fa-linkedin"></i>
-                              <span class="project-title">Linkedin Contacts</span>
-                              <span>90 total</span>
-                              <div class="project-progressbar">
-                                  <div class="project-progressbar-value" style="width: 90%"></div>
-                              </div>
-                          </li>
+                            <li class="clearfix">
+                                <i class="fa fa-github"></i>
+                                <span class="project-title">GitHub Tasks</span>
+                                <span>3 open, 4 closed</span>
+                                <div class="project-progressbar">
+                                    <div class="project-progressbar-value" style="width: 50%"></div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-youtube"></i>
+                                <span class="project-title">YouTube Videos</span>
+                                <span>12 new, 2 subscribers</span>
+                                <div class="project-progressbar">
+                                    <div class="project-progressbar-value" style="width: 20%"></div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-twitter"></i>
+                                <span class="project-title">Twitter Posts</span>
+                                <span>24 new messages</span>
+                                <div class="project-progressbar">
+                                    <div class="project-progressbar-value" style="width: 65%"></div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-facebook"></i>
+                                <span class="project-title">Facebook Messages</span>
+                                <span>8 total, 4 unread</span>
+                                <div class="project-progressbar">
+                                    <div class="project-progressbar-value" style="width: 80%"></div>
+                                </div>
+                            </li>
+                            <li class="clearfix">
+                                <i class="fa fa-linkedin"></i>
+                                <span class="project-title">Linkedin Contacts</span>
+                                <span>90 total</span>
+                                <div class="project-progressbar">
+                                    <div class="project-progressbar-value" style="width: 90%"></div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </app-sidebarTabContent>
@@ -220,23 +247,46 @@
                             <span>Britain</span>
                             <span>84%</span>
                         </div>
-                        <div class="progress-bar"><div class="progress-bar-indicator-1"></div></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-indicator-1"></div>
+                        </div>
                         <div class="percentage-indicator">
                             <span>Germany</span>
                             <span>58%</span>
                         </div>
-                        <div class="progress-bar"><div class="progress-bar-indicator-2"></div></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-indicator-2"></div>
+                        </div>
                         <div class="percentage-indicator">
                             <span>Turkey</span>
                             <span>44%</span>
                         </div>
-                        <div class="progress-bar"><div class="progress-bar-indicator-3"></div></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-indicator-3"></div>
+                        </div>
                         <div class="percentage-indicator">
                             <span>Slovenia</span>
                             <span>37%</span>
                         </div>
-                        <div class="progress-bar"><div class="progress-bar-indicator-4"></div></div>
+                        <div class="progress-bar">
+                            <div class="progress-bar-indicator-4"></div>
+                        </div>
                     </div>
+                </app-sidebarTabContent>
+            </div>-->
+
+            <!------------------------------------------------Radicado Menu--------------------------------->
+            <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 5}">
+                <div class="layout-submenu-title clearfix">
+                    <span>GESTIÓN Y ADMINISTRACIÓN</span>
+                </div>
+            </div>
+            <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 6}">
+                <div class="layout-submenu-title clearfix">
+                    <span>GESTIÓN RADICADO</span>
+                </div>
+                <app-sidebarTabContent>
+                <app-menu-radicado></app-menu-radicado>
                 </app-sidebarTabContent>
             </div>
         </div>

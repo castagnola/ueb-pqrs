@@ -12,24 +12,16 @@ import { CardModule } from 'primeng/card';
 import { RadicadoDetalleComponent } from './radicado/components';
 import { CalendarModule } from 'primeng/primeng';
 import { FullCalendarModule } from 'primeng/fullcalendar';
-import {InputTextModule} from 'primeng/inputtext';
-import {AutoCompleteModule} from 'primeng/autocomplete';
-import {InputTextareaModule} from 'primeng/inputtextarea';
-import {ButtonModule} from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { ButtonModule } from 'primeng/button';
 import { RadicadoService } from './radicado/service/radicado/radicado.service';
-import {DropdownModule} from 'primeng/dropdown';
+import { DropdownModule } from 'primeng/dropdown';
 import { AuxRadicadoService } from './shared/services/radicado/auxRadicado.service';
-import {MessagesModule} from 'primeng/messages';
-import {MessageModule} from 'primeng/message';
-import{SnotifyModule, ToastDefaults, SnotifyService} from 'ng-snotify';
-
-
-
-
-
-
-
-
+import { MessagesModule } from 'primeng/messages';
+import { MessageModule } from 'primeng/message';
+import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
 
 @NgModule({
     imports: [
@@ -52,7 +44,7 @@ import{SnotifyModule, ToastDefaults, SnotifyService} from 'ng-snotify';
         MessagesModule,
         MessageModule,
         SnotifyModule
-        
+
 
 
     ],
@@ -62,8 +54,8 @@ import{SnotifyModule, ToastDefaults, SnotifyService} from 'ng-snotify';
         RadicadoComponent
     ],
 
-    providers: [LoginService,RadicadoService,AuxRadicadoService,
-        {provide: 'SnotifyToastConfig',useValue:ToastDefaults},SnotifyService
+    providers: [LoginService, RadicadoService, AuxRadicadoService,
+        { provide: 'SnotifyToastConfig', useValue: ToastDefaults }, SnotifyService
     ],
     bootstrap: [AppComponent]
 })

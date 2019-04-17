@@ -15,13 +15,15 @@ import { FileDemoComponent } from '../demo/view/filedemo.component';
 import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
 import { DocumentationComponent } from '../demo/view/documentation.component';
 import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.component';
+import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
 
 
 export const ROUTES: Routes = [
     {
        path: '',  component: AppWrapperComponent,
-       children:[  
-       { path: 'dasboard', component: DashboardDemoComponent },
+       children:[
+       {path:'dashborad-radicado',component: DashboardRadicadoComponent},  
+       { path: 'dashboard', component: DashboardDemoComponent },
        { path: 'sample', component: SampleDemoComponent },
        { path: 'forms', component: FormsDemoComponent },
        { path: 'data', component: DataDemoComponent },

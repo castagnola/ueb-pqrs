@@ -26,7 +26,8 @@ export class ListaRadicadoComponent implements OnInit {
    * Events
    */
 
-  
+ 
+
   loadRadicado$ = environment
 
 

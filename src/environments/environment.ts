@@ -7,4 +7,5 @@ export const environment = {
   production: false,
   baseUrl: 'http://localhost:4200',
     apiUrl: 'http://localhost/api-ueb/public/api',
+    pdfUrl:'http://localhost/api-ueb/pdf-informes/informe-certificado-pqrs/InformeCertificadoPqrs.php'
 };

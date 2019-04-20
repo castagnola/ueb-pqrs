@@ -7,7 +7,7 @@ import { environment } from '../../../../environments/environment';
 
 /** Models */
 import { Observable } from 'rxjs';
-import { UsuarioModel } from '../../../shared/models/UsuarioModel';
+import { UsuarioModel } from '../../../shared/models/Usuario.Model';
 
 @Injectable()
 export class LoginService {

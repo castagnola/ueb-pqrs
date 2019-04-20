@@ -22,7 +22,7 @@ export const ROUTES: Routes = [
     {
        path: '',  component: AppWrapperComponent,
        children:[
-       {path:'dashborad-radicado',component: DashboardRadicadoComponent},  
+       {path:'dashboard-radicado',component: DashboardRadicadoComponent},  
        { path: 'dashboard', component: DashboardDemoComponent },
        { path: 'sample', component: SampleDemoComponent },
        { path: 'forms', component: FormsDemoComponent },

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListaRadicadoComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
-import { RadicadoModel } from 'src/app/shared/models/radicado.Model';
+import { RadicadoModel } from '../../../shared/models/radicado.Model';
 
 @Component({
   selector: 'app-dashboard-radicado',

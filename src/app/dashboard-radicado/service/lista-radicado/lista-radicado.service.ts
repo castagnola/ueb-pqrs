@@ -28,7 +28,5 @@ export class ListaRadicadoService {
    * @param event 
    */
   
-  generatePdf(event):Observable<any>{
-    return this.http.get<any>(`${environment.pdfUrl}InformeCertificadoPqrs.php?codigo=${event}`)
-  }
+ 
 }

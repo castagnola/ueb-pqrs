@@ -26,7 +26,6 @@ import { AppMenuComponent, AppSubMenuComponent } from '../app.menu.component';
 import { AppSideBarComponent } from '../app-sidebar/app.sidebar.component';
 import { AppSideBarTabContentComponent } from '../app-sidebar/app.sidebartabcontent.component';
 import { AppTopBarComponent } from '../app-topbar/app.topbar.component';
-//import { AppFooterComponent } from '../app.footer.component';
 import { DashboardDemoComponent } from '../demo/view/dashboarddemo.component';
 import { SampleDemoComponent } from '../demo/view/sampledemo.component';
 import { FormsDemoComponent } from '../demo/view/formsdemo.component';
@@ -40,7 +39,6 @@ import { ChartsDemoComponent } from '../demo/view/chartsdemo.component';
 import { EmptyDemoComponent } from '../demo/view/emptydemo.component';
 import { FileDemoComponent } from '../demo/view/filedemo.component';
 import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
-//import { DocumentationComponent } from '../demo/view/documentation.component';
 import { LoginComponent } from '../login/containers';
 import { CarService } from '../demo/service/carservice';
 import { CountryService } from '../demo/service/countryservice';
@@ -53,10 +51,14 @@ import { DocumentationComponent } from '../demo/view/documentation.component';
 import { AppFooterComponent } from '../app.footer.component';
 import { AppMenuRadicadoComponent } from '../app-menu-radicado/app-menu-radicado.component';
 import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
+import { ListaRadicadoComponent } from '../dashboard-radicado/components/lista-radicado/lista-radicado.component';
+
+
+
 @NgModule({
     imports: [
       CommonModule,    
-    ReactiveFormsModule,
+      ReactiveFormsModule,
       FormsModule,
       AppWrapperRoutes,
       HttpClientModule,
@@ -154,6 +156,7 @@ import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/das
       AppWrapperComponent,
       AppMenuRadicadoComponent,
       DashboardRadicadoComponent,
+      ListaRadicadoComponent
 
 
   ],
@@ -188,7 +191,7 @@ providers: [
     CarService,
     EventService,
     CountryService,
-    NodeService
+    NodeService,
     
 ]
 

@@ -19,7 +19,7 @@ export class AppMenuRadicadoComponent implements OnInit {
 
     ngOnInit() {
         this.model = [
-            { label: 'Consultar Radicado', icon: 'fa fa-files-o', routerLink: ['dashborad-radicado'] },
+            { label: 'Consultar Radicado', icon: 'fa fa-files-o', routerLink: ['dashboard-radicado'] },
         ]
     }
     /**

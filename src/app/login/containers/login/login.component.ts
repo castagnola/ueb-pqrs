@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
         this.msgs = [];
         this.msgs.push({ severity: 'success', summary: 'Ingreso exitoso!', detail: '' });
         this.handleResponse(data);
+        console.log(data)
       },
       error => {
         this.msgs = [];
@@ -67,7 +68,7 @@ export class LoginComponent implements OnInit {
 
   onRegister() {
     this.loginService.register(this.form.value).subscribe(
-      data2 => console.log(data2, 'aca'),
+      data2 => console.log(data2, 'Registro'),
       error2 => console.log(error2)
     )
   }

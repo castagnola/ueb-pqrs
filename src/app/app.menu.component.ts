@@ -21,7 +21,7 @@ export class AppMenuComponent implements OnInit {
         this.model = [
             {label: 'Dashboard', icon: 'fa fa-fw fa-home', routerLink: ['data']},
             // {
-            //     label: 'Menu Modes', icon: 'fa fa-fw fa-bars',
+            //     label: 'Menu Modes', icon: 'fa fa-fw fa-home',
             //     items: [
             //         {label: 'Static Menu', icon: 'fa fa-fw fa-bars',  command: () => this.app.changeToStaticMenu()},
             //         {label: 'Overlay Menu', icon: 'fa fa-fw fa-bars',  command: () => this.app.changeToOverlayMenu()}

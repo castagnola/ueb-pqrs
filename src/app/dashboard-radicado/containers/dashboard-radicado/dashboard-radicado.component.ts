@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListaRadicadoComponent } from '../../components';
+import { ListaRadicadoComponent, ListaRadicadoTresComponent,ListaRadicadoDosComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
-import { ListaRadicadoDosComponent } from '../../components';
 
 
 @Component({
@@ -18,7 +17,7 @@ export class DashboardRadicadoComponent implements OnInit {
   loading: boolean = true;
   loadRadicado: RadicadoModel
   loadRadicadoReclamo: RadicadoModel
-  selectedCar: RadicadoModel;
+  loadRadicadoQueja: RadicadoModel
 
 
   /**
@@ -31,12 +30,16 @@ export class DashboardRadicadoComponent implements OnInit {
   @ViewChild('listaRadicadoReclamo')
   listaRadicadoReclamo: ListaRadicadoDosComponent
 
+  @ViewChild('listaRadicadoQueja')
+  listaRadicadoQueja: ListaRadicadoTresComponent
+
   constructor(private listaService: ListaRadicadoService) { }
 
   ngOnInit() {
 
     this.getListaRadicadoByPeticion();
     this.getListaRadicadoByReclamo();
+    this.getListaRadicadoByQueja();
   }
 
   /**
@@ -55,18 +58,36 @@ export class DashboardRadicadoComponent implements OnInit {
 
 
   }
-   /**
-   * Lista de solicitudes radicadas por Reclamo
-   */
-  getListaRadicadoByReclamo(){
-    this.listaService.getListaRadicadoByReclamo().subscribe(response=>{
-      setTimeout(()=>{
+
+  /**
+  * Lista de solicitudes radicadas por Reclamo
+  */
+
+  getListaRadicadoByReclamo() {
+    this.listaService.getListaRadicadoByReclamo().subscribe(response => {
+      setTimeout(() => {
         this.loadRadicadoReclamo = response,
-        this.loading = false;
+          this.loading = false;
         console.log(response);
 
-      },1500)
+      }, 1500)
 
+    });
+
+  }
+
+  /**
+   * Lista de solicitudes radicadas por Queja
+   */
+
+  getListaRadicadoByQueja() {
+    this.listaService.getListaRadicadoByQueja().subscribe(response => {
+      setTimeout(() => {
+        this.loadRadicadoQueja = response,
+          this.loading = false;
+        console.log(response);
+
+      }, 1700)
     });
 
   }

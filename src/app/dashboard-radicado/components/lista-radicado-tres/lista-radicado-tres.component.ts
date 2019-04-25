@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { RadicadoModel } from '../../../shared/models/radicado.Model';
+import { environment } from '../../../../environments/environment';
+import { DataTable } from "primeng/primeng";
+
 
 @Component({
   selector: 'app-lista-radicado-tres',
@@ -7,6 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaRadicadoTresComponent implements OnInit {
 
+  @ViewChild("dt")
+  dt: DataTable;
+
+   /**
+   * Properties
+   */
+
+  @Input()
+  loadRadicadoQueja: RadicadoModel
+
+  @Input()
+  loading: boolean = true;
+
+  /**
+   * Events
+   */
+
+ 
+
+  loadRadicadoQueja$ = environment
   constructor() { }
 
   ngOnInit() {

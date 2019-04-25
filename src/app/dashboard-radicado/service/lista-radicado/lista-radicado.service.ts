@@ -13,23 +13,32 @@ import { UsuarioModel } from '../../../shared/models/Usuario.Model';
 })
 export class ListaRadicadoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   /**
    * servicio para la lista de radicados por petición
    */
 
-  getListaRadicadoByPeticion():Observable<RadicadoModel>{
-      return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado`)
+  getListaRadicadoByPeticion(): Observable<RadicadoModel> {
+    return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado`)
   }
 
   /**
    * servicio para la lista de radicados por reclamo
    */
 
-  getListaRadicadoByReclamo():Observable<RadicadoModel>{
+  getListaRadicadoByReclamo(): Observable<RadicadoModel> {
     return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-reclamo`)
   }
-  
- 
+
+  /**
+   * servicio para la lista de radicados por queja
+   */
+
+  getListaRadicadoByQueja(): Observable<RadicadoModel> {
+    return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-queja`)
+  }
+
+
+
 }

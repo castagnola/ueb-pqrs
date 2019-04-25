@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListaRadicadoDosComponent } from './lista-radicado-dos.component';
+import { ListaRadicadoTresComponent } from './lista-radicado-tres.component';
 
-describe('ListaRadicadoDosComponent', () => {
-  let component: ListaRadicadoDosComponent;
-  let fixture: ComponentFixture<ListaRadicadoDosComponent>;
+describe('ListaRadicadoTresComponent', () => {
+  let component: ListaRadicadoTresComponent;
+  let fixture: ComponentFixture<ListaRadicadoTresComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaRadicadoDosComponent ]
+      declarations: [ ListaRadicadoTresComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListaRadicadoDosComponent);
+    fixture = TestBed.createComponent(ListaRadicadoTresComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

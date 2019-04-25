@@ -52,6 +52,7 @@ import { AppFooterComponent } from '../app.footer.component';
 import { AppMenuRadicadoComponent } from '../app-menu-radicado/app-menu-radicado.component';
 import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
 import { ListaRadicadoComponent } from '../dashboard-radicado/components/lista-radicado/lista-radicado.component';
+import { ListaRadicadoDosComponent } from '../dashboard-radicado/components/lista-radicado-dos/lista-radicado-dos.component';
 
 
 
@@ -156,7 +157,8 @@ import { ListaRadicadoComponent } from '../dashboard-radicado/components/lista-r
       AppWrapperComponent,
       AppMenuRadicadoComponent,
       DashboardRadicadoComponent,
-      ListaRadicadoComponent
+      ListaRadicadoComponent,
+      ListaRadicadoDosComponent
 
 
   ],

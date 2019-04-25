@@ -1,3 +1,80 @@
-<p>
-  lista-radicado-dos works!
-</p>
+<div class="ui-g">
+  <div class="ui-g-12">
+      <div class="card card-w-title">
+          <h1>Solicitudes por Reclamo</h1>
+          <p-table [value]="loadRadicadoReclamo" [paginator]="true" [rows]="10" selectionMode="single" [loading]="loading"
+              [responsive]="true" sortField="identificacion" #dt>
+
+              <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th>
+                          Identificación
+                      </th>
+                      <th>
+                          Nombre del cliente
+                      </th>
+                      <th>
+                            Estado
+                        </th>
+                      <th>
+                          Tipo
+                      </th>
+                      
+                      <th>
+                          Justificación
+                      </th>
+                      <th>
+                          Link
+                      </th>
+                      <th>
+                          Acciones
+                      </th>
+                  </tr>
+                  <tr>
+                      <th>
+                          <input pInputText type="text"
+                              (input)="dt.filter($event.target.value, 'usuario.identificacion', 'contains')">
+                      </th>
+                      <th>
+                              <input pInputText type="text"
+                              (input)="dt.filter($event.target.value, 'usuario.nombre', 'contains')">
+                      </th>
+                      <th>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')"> </th>
+                      <th>
+                      </th>
+                      
+                      <th>
+                      </th>
+                      <th>
+                      </th>
+                      <th>
+                      </th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-loadRadicadoReclamo>
+                  <tr [pSelectableRow]="loadRadicadoReclamo">
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.usuario?.identificacion}} </td>
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.usuario?.nombre}} </td>
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.estado_radicado?.estado}}</td>
+
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.tipo?.nombre}} </td>
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.justificacion}}</td>
+                      <td style="text-align: center;">{{loadRadicadoReclamo?.comentarios}}</td>
+
+                      <td style="text-align: center;">
+                          <form *ngIf="loadRadicadoReclamo" ngNoForm method="post" [action]="loadRadicadoReclamo$?.pdfUrl"
+                              target="_blank">
+                              <input type="hidden" name="id" [(ngModel)]="loadRadicadoReclamo.id">
+                              <button pButton type="submit" icon="fa fa-file-pdf-o"
+                                  [disabled]='loadRadicadoReclamo?.estado_radicado?.id != 3'
+                                  class="ui-button-danger"></button>
+                          </form>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+  </div>
+</div>

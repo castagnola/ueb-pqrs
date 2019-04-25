@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListaRadicadoComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
+import { ListaRadicadoDosComponent } from '../../components';
+
 
 @Component({
   selector: 'app-dashboard-radicado',
@@ -13,8 +15,9 @@ export class DashboardRadicadoComponent implements OnInit {
   /**
   * Atributos
   */
- loading: boolean = true;
+  loading: boolean = true;
   loadRadicado: RadicadoModel
+  loadRadicadoReclamo: RadicadoModel
   selectedCar: RadicadoModel;
 
 
@@ -25,26 +28,48 @@ export class DashboardRadicadoComponent implements OnInit {
   @ViewChild('listaRadicado')
   listaRadicado: ListaRadicadoComponent
 
+  @ViewChild('listaRadicadoReclamo')
+  listaRadicadoReclamo: ListaRadicadoDosComponent
+
   constructor(private listaService: ListaRadicadoService) { }
 
   ngOnInit() {
 
-    this.getListaRadicadoById();
+    this.getListaRadicadoByPeticion();
+    this.getListaRadicadoByReclamo();
   }
 
   /**
-   * Lista de solicitudes radicadas
+   * Lista de solicitudes radicadas por Peticion
    */
 
-  getListaRadicadoById() {
-    this.listaService.getListaRadicadoById().subscribe(response => {
-
-      this.loadRadicado = response,
-      this.loading = false;
+  getListaRadicadoByPeticion() {
+    this.listaService.getListaRadicadoByPeticion().subscribe(response => {
+      setTimeout(() => {
+        this.loadRadicado = response,
+          this.loading = false;
         console.log(response);
+      }, 1000);
+
+    });
+
+
+  }
+   /**
+   * Lista de solicitudes radicadas por Reclamo
+   */
+  getListaRadicadoByReclamo(){
+    this.listaService.getListaRadicadoByReclamo().subscribe(response=>{
+      setTimeout(()=>{
+        this.loadRadicadoReclamo = response,
+        this.loading = false;
+        console.log(response);
+
+      },1500)
+
     });
 
   }
- 
+
 
 }

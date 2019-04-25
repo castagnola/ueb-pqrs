@@ -14,10 +14,10 @@
                             Nombre del cliente
                         </th>
                         <th>
-                            Tipo
+                            Estado
                         </th>
                         <th>
-                            Estado
+                            Tipo
                         </th>
                         <th>
                             Justificación
@@ -39,10 +39,11 @@
                                 (input)="dt.filter($event.target.value, 'usuario.nombre', 'contains')">
                         </th>
                         <th>
+                                <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')"> 
                         </th>
                         <th>
-                            <input pInputText type="text"
-                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')"> </th>
+                           
                         <th>
                         </th>
                         <th>
@@ -55,8 +56,8 @@
                     <tr [pSelectableRow]="loadRadicado">
                         <td style="text-align: center;">{{loadRadicado?.usuario?.identificacion}} </td>
                         <td style="text-align: center;">{{loadRadicado?.usuario?.nombre}} </td>
-                        <td style="text-align: center;">{{loadRadicado?.tipo?.nombre}} </td>
                         <td style="text-align: center;">{{loadRadicado?.estado_radicado?.estado}}</td>
+                        <td style="text-align: center;">{{loadRadicado?.tipo?.nombre}} </td>
                         <td style="text-align: center;">{{loadRadicado?.justificacion}}</td>
                         <td style="text-align: center;">{{loadRadicado?.comentarios}}</td>
 

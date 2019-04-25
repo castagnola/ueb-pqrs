@@ -7,9 +7,10 @@ import { ListaRadicadoComponent } from './components/lista-radicado/lista-radica
  */
 import * as fromContainers from './containers'
 import * as fromComponents from "./components";
+import { ListaRadicadoDosComponent } from './components/lista-radicado-dos/lista-radicado-dos.component';
 
 @NgModule({
-  declarations: [   ...fromContainers.containers],
+  declarations: [   ...fromContainers.containers, ListaRadicadoDosComponent],
   imports: [
     CommonModule
   ],

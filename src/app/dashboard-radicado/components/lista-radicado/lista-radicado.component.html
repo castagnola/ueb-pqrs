@@ -1,9 +1,10 @@
 <div class="ui-g">
     <div class="ui-g-12">
         <div class="card card-w-title">
-            <h1>Solicitudes Generales</h1>
+            <h1>Solicitudes por Petición</h1>
             <p-table [value]="loadRadicado" [paginator]="true" [rows]="10" selectionMode="single" [loading]="loading"
-                [responsive]="true">
+                [responsive]="true" sortField="identificacion" #dt>
+
                 <ng-template pTemplate="header" let-columns>
                     <tr>
                         <th>
@@ -22,7 +23,31 @@
                             Justificación
                         </th>
                         <th>
+                            Link
+                        </th>
+                        <th>
                             Acciones
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'usuario.identificacion', 'contains')">
+                        </th>
+                        <th>
+                                <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'usuario.nombre', 'contains')">
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')"> </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
                         </th>
                     </tr>
                 </ng-template>
@@ -31,14 +56,17 @@
                         <td style="text-align: center;">{{loadRadicado?.usuario?.identificacion}} </td>
                         <td style="text-align: center;">{{loadRadicado?.usuario?.nombre}} </td>
                         <td style="text-align: center;">{{loadRadicado?.tipo?.nombre}} </td>
-                        <td style="text-align: center;">{{loadRadicado?.estado_radicado?.estado}} </td>
+                        <td style="text-align: center;">{{loadRadicado?.estado_radicado?.estado}}</td>
                         <td style="text-align: center;">{{loadRadicado?.justificacion}}</td>
+                        <td style="text-align: center;">{{loadRadicado?.comentarios}}</td>
+
                         <td style="text-align: center;">
-                            <form *ngIf="loadRadicado" ngNoForm method="post"  [action]="loadRadicado$?.pdfUrl" target="_blank">
+                            <form *ngIf="loadRadicado" ngNoForm method="post" [action]="loadRadicado$?.pdfUrl"
+                                target="_blank">
                                 <input type="hidden" name="id" [(ngModel)]="loadRadicado.id">
                                 <button pButton type="submit" icon="fa fa-file-pdf-o"
-                                [disabled]='loadRadicado.estado_radicado.id != 3'
-                                 class="ui-button-danger"></button>
+                                    [disabled]='loadRadicado?.estado_radicado?.id != 3'
+                                    class="ui-button-danger"></button>
                             </form>
                         </td>
                     </tr>

@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListaRadicadoComponent, ListaRadicadoTresComponent,ListaRadicadoDosComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
+import { EstadoRadicadoModel } from '../../../shared/models/estadoRadicado.Model';
+import { EstadoRadicadoService } from '../../../shared/services/estado-radicado/estado-radicado.service'
 
 
 @Component({
@@ -18,6 +20,7 @@ export class DashboardRadicadoComponent implements OnInit {
   loadRadicado: RadicadoModel
   loadRadicadoReclamo: RadicadoModel
   loadRadicadoQueja: RadicadoModel
+  loadEstados: EstadoRadicadoModel[];
 
 
   /**
@@ -33,13 +36,14 @@ export class DashboardRadicadoComponent implements OnInit {
   @ViewChild('listaRadicadoQueja')
   listaRadicadoQueja: ListaRadicadoTresComponent
 
-  constructor(private listaService: ListaRadicadoService) { }
+  constructor(private listaService: ListaRadicadoService, private generalEstadoRadicado: EstadoRadicadoService) { }
 
   ngOnInit() {
 
     this.getListaRadicadoByPeticion();
     this.getListaRadicadoByReclamo();
     this.getListaRadicadoByQueja();
+    this.getAllEstados();
   }
 
   /**
@@ -91,6 +95,14 @@ export class DashboardRadicadoComponent implements OnInit {
     });
 
   }
-
+/**
+ * Lista de estados
+ */
+getAllEstados(){
+  this.generalEstadoRadicado.getAllEstados().subscribe(response=>{
+    this.loadEstados = response
+    console.log(response,'estados')
+  })
+}
 
 }

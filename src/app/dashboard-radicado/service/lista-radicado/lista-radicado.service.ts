@@ -5,7 +5,6 @@ import { Observable } from 'rxjs';
 /**Environment */
 import { environment } from '../../../../environments/environment';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
-import { UsuarioModel } from '../../../shared/models/Usuario.Model';
 
 
 @Injectable({
@@ -38,7 +37,5 @@ export class ListaRadicadoService {
   getListaRadicadoByQueja(): Observable<RadicadoModel> {
     return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-queja`)
   }
-
-
 
 }

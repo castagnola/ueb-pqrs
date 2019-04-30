@@ -7,7 +7,7 @@ import { ModuleWithProviders } from '@angular/core';
 
 
 export const routes: Routes = [
-    {path: '', redirectTo:'login',pathMatch:'full'},
+    {path: '', redirectTo:'login',pathMatch:'full',canActivate:[BeforeLoginService]},
     {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule',canActivate:[AfterLoginService]},
     {path:'login', component: LoginComponent,canActivate:[BeforeLoginService]},
     {path: 'login/radicado', component: RadicadoComponent },

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angu
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
 import { environment } from '../../../../environments/environment';
 import { DataTable } from "primeng/primeng";
+import { EstadoRadicadoModel } from '../../../shared/models/estadoRadicado.Model';
 
 
 @Component({
@@ -15,12 +16,17 @@ export class ListaRadicadoComponent implements OnInit {
   @ViewChild("dt")
   dt: DataTable;
 
-   /**
-   * Properties
-   */
+  /**
+  * Properties
+  */
 
   @Input()
   loadRadicado: RadicadoModel
+
+  @Input()
+  loadEstados: EstadoRadicadoModel[]
+
+  brands: EstadoRadicadoModel[];
 
   @Input()
   loading: boolean = true;
@@ -28,19 +34,17 @@ export class ListaRadicadoComponent implements OnInit {
   /**
    * Events
    */
-
- 
-
+  
   loadRadicado$ = environment
 
 
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 
-  
+
 
 }

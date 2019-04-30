@@ -28,6 +28,9 @@
                         <th>
                             Acciones
                         </th>
+                        <th>
+                            Reporte
+                        </th>
                     </tr>
                     <tr>
                         <th>
@@ -35,32 +38,47 @@
                                 (input)="dt.filter($event.target.value, 'usuario.identificacion', 'contains')">
                         </th>
                         <th>
-                                <input pInputText type="text"
+                            <input pInputText type="text"
                                 (input)="dt.filter($event.target.value, 'usuario.nombre', 'contains')">
                         </th>
                         <th>
-                                <input pInputText type="text"
-                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')"> 
+                            <input pInputText type="text"
+                                (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')">
                         </th>
                         <th>
-                           
-                        <th>
-                        </th>
+
                         <th>
                         </th>
                         <th>
                         </th>
+                        <th>
+                        </th>
+                        <th></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-loadRadicado>
-                    <tr [pSelectableRow]="loadRadicado">
+                <ng-template pTemplate="body" let-loadRadicado let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="loadRadicado">
                         <td style="text-align: center;">{{loadRadicado?.usuario?.identificacion}} </td>
                         <td style="text-align: center;">{{loadRadicado?.usuario?.nombre}} </td>
-                        <td style="text-align: center;">{{loadRadicado?.estado_radicado?.estado}}</td>
+                        <td pEditableColumn style="text-align: center;">
+                            <p-cellEditor>
+                                <ng-template pTemplate="input">
+                                    <p-dropdown [options]="loadEstados" [style]="{'width':'100%'}"
+                                        [(ngModel)]="loadRadicado.id" optionLabel="estado"></p-dropdown>
+                                </ng-template>
+                                <ng-template pTemplate="output">
+                                    {{loadRadicado?.estado_radicado?.estado}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
                         <td style="text-align: center;">{{loadRadicado?.tipo?.nombre}} </td>
                         <td style="text-align: center;">{{loadRadicado?.justificacion}}</td>
                         <td style="text-align: center;">{{loadRadicado?.comentarios}}</td>
-
+                        <td style="text-align:center">
+                            <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil" class="ui-button-info" (click)="onRowEditInit(rowData)"></button>
+                            <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check" class="ui-button-success" style="margin-right: .5em" (click)="onRowEditSave(rowData)"></button>
+                            <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times" class="ui-button-danger" (click)="onRowEditCancel(rowData, ri)"></button>
+                        </td>
                         <td style="text-align: center;">
                             <form *ngIf="loadRadicado" ngNoForm method="post" [action]="loadRadicado$?.pdfUrl"
                                 target="_blank">
@@ -70,6 +88,8 @@
                                     class="ui-button-danger"></button>
                             </form>
                         </td>
+                        <!-- <pre>{{ form.value | json}}</pre> -->
+
                     </tr>
                 </ng-template>
             </p-table>

@@ -38,4 +38,8 @@ export class ListaRadicadoService {
     return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-queja`)
   }
 
+  onEditEstadoById(data: RadicadoModel): Observable<RadicadoModel> {
+    return this.http.post<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/edit-estado-radicado/${data.id}`, data)
+  }
+
 }

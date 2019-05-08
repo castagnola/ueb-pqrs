@@ -1,3 +1,13 @@
-<app-lista-radicado #listaRadicado [loadRadicado]='loadRadicado' [loading]='loading' [loadEstados]='loadEstados'></app-lista-radicado>
-<app-lista-radicado-dos #listaRadicadoReclamo  [loadRadicadoReclamo]='loadRadicadoReclamo'[loading]='loading'></app-lista-radicado-dos>
-    <app-lista-radicado-tres #listaRadicadoQueja [loadRadicadoQueja]='loadRadicadoQueja'[loading]='loading'></app-lista-radicado-tres>
+
+<app-lista-radicado #listaRadicado [loadRadicado]='loadRadicado' [loadRadicado2]='loadRadicado2' [loading]='loading'
+    [loadEstados]='loadEstados' (onEditEstado)='onEditEstado($event)'>
+</app-lista-radicado>
+
+<app-lista-radicado-dos #listaRadicadoReclamo [loadRadicadoReclamo]='loadRadicadoReclamo'
+    [loadRadicadoReclamo2]='loadRadicadoReclamo2' [loading]='loading' [loadEstados]='loadEstados'
+    (onEditEstado)='onEditEstado($event)'>
+</app-lista-radicado-dos>
+<app-lista-radicado-tres #listaRadicadoQueja [loadRadicadoQueja]='loadRadicadoQueja'
+    [loadRadicadoQueja2]='loadRadicadoQueja2' [loading]='loading' [loadEstados]='loadEstados'
+    (onEditEstado)='onEditEstado($event)'>
+</app-lista-radicado-tres>

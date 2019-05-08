@@ -13,5 +13,7 @@ id?:number
     comentarios:string,
     anexo?:string,
     justificacion?:string,
-    identificacion:string
+    identificacion:string,
+    estado_radicado?:any,
+    usuario?:any
 }

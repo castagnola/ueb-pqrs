@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListaRadicadoComponent, ListaRadicadoTresComponent,ListaRadicadoDosComponent } from '../../components';
+import { ListaRadicadoComponent, ListaRadicadoTresComponent, ListaRadicadoDosComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
 import { EstadoRadicadoModel } from '../../../shared/models/estadoRadicado.Model';
 import { EstadoRadicadoService } from '../../../shared/services/estado-radicado/estado-radicado.service'
+import { MessageService } from 'primeng/api';
+import { error } from '@angular/compiler/src/util';
+
 
 
 @Component({
@@ -17,9 +20,19 @@ export class DashboardRadicadoComponent implements OnInit {
   * Atributos
   */
   loading: boolean = true;
+
   loadRadicado: RadicadoModel
+
+  loadRadicado2: RadicadoModel
+
   loadRadicadoReclamo: RadicadoModel
+
   loadRadicadoQueja: RadicadoModel
+
+  loadRadicadoReclamo2: RadicadoModel
+
+  loadRadicadoQueja2: RadicadoModel
+
   loadEstados: EstadoRadicadoModel[];
 
 
@@ -36,7 +49,7 @@ export class DashboardRadicadoComponent implements OnInit {
   @ViewChild('listaRadicadoQueja')
   listaRadicadoQueja: ListaRadicadoTresComponent
 
-  constructor(private listaService: ListaRadicadoService, private generalEstadoRadicado: EstadoRadicadoService) { }
+  constructor(private listaService: ListaRadicadoService, private generalEstadoRadicado: EstadoRadicadoService, private messageService: MessageService) { }
 
   ngOnInit() {
 
@@ -54,6 +67,7 @@ export class DashboardRadicadoComponent implements OnInit {
     this.listaService.getListaRadicadoByPeticion().subscribe(response => {
       setTimeout(() => {
         this.loadRadicado = response,
+          this.loadRadicado2 = response,
           this.loading = false;
         console.log(response);
       }, 1000);
@@ -71,6 +85,7 @@ export class DashboardRadicadoComponent implements OnInit {
     this.listaService.getListaRadicadoByReclamo().subscribe(response => {
       setTimeout(() => {
         this.loadRadicadoReclamo = response,
+        this.loadRadicadoReclamo2 = response,
           this.loading = false;
         console.log(response);
 
@@ -88,6 +103,7 @@ export class DashboardRadicadoComponent implements OnInit {
     this.listaService.getListaRadicadoByQueja().subscribe(response => {
       setTimeout(() => {
         this.loadRadicadoQueja = response,
+        this.loadRadicadoQueja2 = response,
           this.loading = false;
         console.log(response);
 
@@ -95,14 +111,34 @@ export class DashboardRadicadoComponent implements OnInit {
     });
 
   }
-/**
- * Lista de estados
- */
-getAllEstados(){
-  this.generalEstadoRadicado.getAllEstados().subscribe(response=>{
-    this.loadEstados = response
-    console.log(response,'estados')
-  })
-}
+  /**
+   * Lista de estados
+   */
+  getAllEstados() {
+    this.generalEstadoRadicado.getAllEstados().subscribe(response => {
+      this.loadEstados = response
+      console.log(response, 'estados')
+    })
+  }
 
+  /**
+   * Editar estado by id
+   */
+
+  onEditEstado(event) {
+    console.log(event)
+    if (event.justificacion != null && event.justificacion != '' && event.estado_radicado.id != 1) {
+      this.listaService.onEditEstadoById(event).subscribe(
+        data => {
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Actualizado a ' + event.estado_radicado.estado });
+        }
+      )
+    } else if (event.estado_radicado.id == 1) {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Seleccione un estado diferente a Radicado' });
+    }
+    else {
+      this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Ingrese una justificación' });
+
+    }
+  }
 }

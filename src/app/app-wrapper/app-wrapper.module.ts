@@ -54,6 +54,8 @@ import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/das
 import { ListaRadicadoComponent } from '../dashboard-radicado/components/lista-radicado/lista-radicado.component';
 import { ListaRadicadoDosComponent } from '../dashboard-radicado/components/lista-radicado-dos/lista-radicado-dos.component';
 import { ListaRadicadoTresComponent } from '../dashboard-radicado/components/lista-radicado-tres/lista-radicado-tres.component';
+import {MessageService} from 'primeng/api';
+
 
 
 
@@ -196,6 +198,7 @@ providers: [
     EventService,
     CountryService,
     NodeService,
+    MessageService
     
 ]
 

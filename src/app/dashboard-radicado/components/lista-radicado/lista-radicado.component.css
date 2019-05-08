@@ -1,0 +1,5 @@
+
+:host ::ng-deep .ui-message,
+:host ::ng-deep .ui-inputtext {
+    margin-right: .25em;
+}

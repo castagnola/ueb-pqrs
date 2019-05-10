@@ -1,3 +1,109 @@
-<p>
-  lista-radicado-cuatro works!
-</p>
+<div class="ui-g">
+  <div class="ui-g-12">
+      <div class="card card-w-title">
+          <h1>Solicitudes por Sugerencia</h1>
+          <p-table editMode="row" dataKey="id" [value]="loadRadicadoSugerencia2" [paginator]="true" [rows]="10"
+              [loading]="loading" [responsive]="true" sortField="identificacion" #dt>
+              <ng-template pTemplate="header" let-columns>
+                  <tr>
+                      <th>
+                          Identificación
+                      </th>
+                      <th>
+                          Nombre del cliente
+                      </th>
+                      <th>
+                          Estado
+                      </th>
+                      <th>
+                          Tipo
+                      </th>
+                      <th>
+                          Justificación
+                      </th>
+                      <th>
+                          Link
+                      </th>
+                      <th>
+                          Acciones
+                      </th>
+                      <th>
+                          Reporte
+                      </th>
+                  </tr>
+                  <tr>
+                      <th>
+                          <input pInputText type="text"
+                              (input)="dt.filter($event.target.value, 'usuario.identificacion', 'contains')">
+                      </th>
+                      <th>
+                          <input pInputText type="text"
+                              (input)="dt.filter($event.target.value, 'usuario.nombre', 'contains')">
+                      </th>
+                      <th>
+                          <input pInputText type="text"
+                              (input)="dt.filter($event.target.value, 'estado_radicado.estado', 'contains')">
+                      </th>
+                      <th>
+
+                      <th>
+                      </th>
+                      <th>
+                      </th>
+                      <th>
+                      </th>
+                      <th></th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-loadRadicadoSugerencia let-editing="editing" let-ri="rowIndex">
+                  <!--Arreglar aca-->
+                  <tr [pEditableRow]="loadRadicadoSugerencia">
+                      <td style="text-align: center;">{{loadRadicadoSugerencia?.usuario?.identificacion}} </td>
+                      <td style="text-align: center;">{{loadRadicadoSugerencia?.usuario?.nombre}} </td>
+                      <td style="text-align: center;">
+                          <p-cellEditor>
+                              <ng-template pTemplate="input">
+                                  <p-dropdown [options]="loadEstados" [style]="{'width':'100%'}"
+                                      [(ngModel)]="loadRadicadoSugerencia.estado_radicado" optionLabel="estado"></p-dropdown>
+                              </ng-template>
+                              <ng-template pTemplate="output">
+                                  {{loadRadicadoSugerencia?.estado_radicado?.estado}}
+                              </ng-template>
+                          </p-cellEditor>
+                      </td>
+                      <td style="text-align: center;">{{loadRadicadoSugerencia?.tipo?.nombre}} </td>
+                      <td style="text-align: center;">
+                          <p-cellEditor>
+                              <ng-template pTemplate="input">
+                                  <input pInputText type="text" [(ngModel)]="loadRadicadoSugerencia.justificacion">
+                              </ng-template>
+                              <ng-template pTemplate="output">
+                                  {{loadRadicadoSugerencia?.justificacion}}
+                              </ng-template>
+                          </p-cellEditor>
+                      </td>
+                      <td style="text-align: center;">{{loadRadicadoSugerencia?.comentarios}}</td>
+                      <td style="text-align:center">
+                          <button *ngIf="!editing" pButton type="button" pInitEditableRow icon="pi pi-pencil"
+                              class="ui-button-info" (click)="onRowEditInit(loadRadicadoSugerencia)"></button>
+                          <button *ngIf="editing" pButton type="button" pSaveEditableRow icon="pi pi-check"
+                              class="ui-button-success" style="margin-right: .5em"
+                              (click)="onRowEditSave(loadRadicadoSugerencia)"></button>
+                          <button *ngIf="editing" pButton type="button" pCancelEditableRow icon="pi pi-times"
+                              class="ui-button-danger" (click)="onRowEditCancel(loadRadicadoSugerencia, ri)"></button>
+                      </td>
+                      <td style="text-align: center;">
+                          <form *ngIf="loadRadicadoSugerencia" ngNoForm method="post" [action]="loadRadicadoSugerencia$?.pdfUrl"
+                              target="_blank">
+                              <input type="hidden" name="id" [(ngModel)]="loadRadicadoSugerencia.id">
+                              <button pButton type="submit" icon="fa fa-file-pdf-o"
+                                  [disabled]='loadRadicadoSugerencia?.estado_radicado?.id != 3' *ngIf="!editing"
+                                  class="ui-button-danger"></button>
+                          </form>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
+      </div>
+  </div>
+</div>

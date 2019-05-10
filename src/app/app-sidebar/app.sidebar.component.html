@@ -2,14 +2,14 @@
     (click)="app.onSidebarClick($event)">
     <div class="layout-tabmenu">
         <ul class="layout-tabmenu-nav">
-            <li [ngClass]="{'active-item':app.activeTabIndex === 0}">
+            <!-- <li [ngClass]="{'active-item':app.activeTabIndex === 0}">
                 <a href="#" class="tabmenuitem-link" (click)="app.onTabClick($event, 0)"><i
                         class="fa fa-folder-open"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Features</div>
                 </div>
-            </li>
+            </li> -->
            <!-- <li [ngClass]="{'active-item':app.activeTabIndex === 1}">
                 <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event, 1)"><i
                         class="fa fa-calendar-o"></i></a>
@@ -43,14 +43,14 @@
                     <div class="layout-tabmenu-tooltip-text">Updates</div>
                 </div>
             </li> -->
-            <li [ngClass]="{'active-item':app.activeTabIndex === 5}">
+            <!-- <li [ngClass]="{'active-item':app.activeTabIndex === 5}">
                 <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event,5 )"><i
                         class="fa fa-cog"></i></a>
                 <div class="layout-tabmenu-tooltip">
                     <div class="layout-tabmenu-tooltip-arrow"></div>
                     <div class="layout-tabmenu-tooltip-text">Gestión</div>
                 </div>
-            </li>
+            </li>-->
             <li [ngClass]="{'active-item':app.activeTabIndex === 6}">
                 <a href="#" class="ripplelink tabmenuitem-link" (click)="app.onTabClick($event,6)"><i
                         class="fa fa-book"></i></a>
@@ -70,9 +70,9 @@
                 </app-sidebarTabContent>
             </div>
             <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 1}">
-                <div class="layout-submenu-title clearfix">
+                <!-- <div class="layout-submenu-title clearfix">
                     <span>INBOX</span>
-                </div>
+                </div> -->
                 <app-sidebarTabContent>
                     <!-- <div class="inbox-tab">
                         <ul>
@@ -276,11 +276,11 @@
             </div>-->
 
             <!------------------------------------------------Radicado Menu--------------------------------->
-            <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 5}">
+            <!-- <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 5}">
                 <div class="layout-submenu-title clearfix">
                     <span>GESTIÓN Y ADMINISTRACIÓN</span>
                 </div>
-            </div>
+            </div> -->
             <div class="layout-tabmenu-content" [ngClass]="{'layout-tabmenu-content-active': app.activeTabIndex === 6}">
                 <div class="layout-submenu-title clearfix">
                     <span>CONSULTAS Y DOCUMENTACIÓN</span>

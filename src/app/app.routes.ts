@@ -11,12 +11,9 @@ export const routes: Routes = [
     {path: 'app', loadChildren: './app-wrapper/app-wrapper.module#AppWrapperModule',canActivate:[AfterLoginService]},
     {path:'login', component: LoginComponent,canActivate:[BeforeLoginService]},
     {path: 'login/radicado', component: RadicadoComponent },
-    // {path: 'app/forms', component: RadicadoComponent }
 
 
 
  
 ];
 export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});
-
-//export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'});

@@ -16,6 +16,8 @@ import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
 import { DocumentationComponent } from '../demo/view/documentation.component';
 import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.component';
 import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
+import { GenerarReporteComponent } from '../generar-reporte/containers/generar-reporte/generar-reporte.component';
+
 
 
 export const ROUTES: Routes = [
@@ -23,6 +25,7 @@ export const ROUTES: Routes = [
        path: '',  component: AppWrapperComponent,
        children:[
        {path:'dashboard-radicado',component: DashboardRadicadoComponent},  
+       {path:'generar-reporte',component: GenerarReporteComponent},  
        { path: 'dashboard', component: DashboardDemoComponent },
        { path: 'sample', component: SampleDemoComponent },
        { path: 'forms', component: FormsDemoComponent },

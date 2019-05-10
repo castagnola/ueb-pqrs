@@ -21,7 +21,6 @@ import { TableModule } from 'primeng/table';
 import { ToastModule } from 'primeng/toast';
 import { TreeModule } from 'primeng/tree';
 import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { AppComponent } from '../app.component';
 import { AppMenuComponent, AppSubMenuComponent } from '../app.menu.component';
 import { AppSideBarComponent } from '../app-sidebar/app.sidebar.component';
 import { AppSideBarTabContentComponent } from '../app-sidebar/app.sidebartabcontent.component';
@@ -39,12 +38,10 @@ import { ChartsDemoComponent } from '../demo/view/chartsdemo.component';
 import { EmptyDemoComponent } from '../demo/view/emptydemo.component';
 import { FileDemoComponent } from '../demo/view/filedemo.component';
 import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
-import { LoginComponent, containers } from '../login/containers';
 import { CarService } from '../demo/service/carservice';
 import { CountryService } from '../demo/service/countryservice';
 import { EventService } from '../demo/service/eventservice';
 import { NodeService } from '../demo/service/nodeservice';
-import { LoginService } from '../login/service';
 import { AppWrapperRoutes } from './app-wrapper.routing';
 import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.component';
 import { DocumentationComponent } from '../demo/view/documentation.component';
@@ -52,11 +49,16 @@ import { AppFooterComponent } from '../app.footer.component';
 import { AppMenuRadicadoComponent } from '../app-menu-radicado/app-menu-radicado.component';
 import {MessageService} from 'primeng/api';
 
+
 /**
  * Imports listas radicados
  */
 import * as fromComponentsListaRadicado from '../dashboard-radicado/components/';
 import * as fromContainersListaRadicado from '../dashboard-radicado/containers';
+
+import * as fromComponentsReporte from '../generar-reporte/components';
+import * as fromContainersReporte from '../generar-reporte/containers';
+
 
 
 
@@ -161,7 +163,9 @@ import * as fromContainersListaRadicado from '../dashboard-radicado/containers';
       AppWrapperComponent,
       AppMenuRadicadoComponent,
       ...fromContainersListaRadicado.containers,
-      ...fromComponentsListaRadicado.components
+      ...fromComponentsListaRadicado.components,
+      ...fromComponentsReporte.components,
+      ...fromContainersReporte.containers
 
 
   ],

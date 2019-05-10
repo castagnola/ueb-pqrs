@@ -50,7 +50,8 @@ import { EstadoRadicadoService } from './shared/services/estado-radicado/estado-
 
 
     ],
-    declarations: [AppComponent,
+    declarations: [
+        AppComponent,
         LoginComponent,
         RadicadoDetalleComponent,
         RadicadoComponent,

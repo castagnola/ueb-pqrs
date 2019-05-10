@@ -1,12 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ListaRadicadoComponent, ListaRadicadoTresComponent, ListaRadicadoDosComponent } from '../../components';
 import { ListaRadicadoService } from '../../service/lista-radicado/lista-radicado.service';
 import { RadicadoModel } from '../../../shared/models/radicado.Model';
 import { EstadoRadicadoModel } from '../../../shared/models/estadoRadicado.Model';
 import { EstadoRadicadoService } from '../../../shared/services/estado-radicado/estado-radicado.service'
 import { MessageService } from 'primeng/api';
-import { error } from '@angular/compiler/src/util';
+import { forkJoin } from "rxjs";
 
+/**
+ * Components
+ */
+import { ListaRadicadoComponent, ListaRadicadoTresComponent, ListaRadicadoDosComponent, ListaRadicadoCuatroComponent } from '../../components';
 
 
 @Component({
@@ -27,11 +30,15 @@ export class DashboardRadicadoComponent implements OnInit {
 
   loadRadicadoReclamo: RadicadoModel
 
-  loadRadicadoQueja: RadicadoModel
-
   loadRadicadoReclamo2: RadicadoModel
 
+  loadRadicadoQueja: RadicadoModel
+
   loadRadicadoQueja2: RadicadoModel
+
+  loadRadicadoSugerencia: RadicadoModel
+
+  loadRadicadoSugerencia2: RadicadoModel
 
   loadEstados: EstadoRadicadoModel[];
 
@@ -49,14 +56,60 @@ export class DashboardRadicadoComponent implements OnInit {
   @ViewChild('listaRadicadoQueja')
   listaRadicadoQueja: ListaRadicadoTresComponent
 
+  @ViewChild('listaRadicadoSugerencia')
+  listaRadicadoSugerencia: ListaRadicadoCuatroComponent
+
   constructor(private listaService: ListaRadicadoService, private generalEstadoRadicado: EstadoRadicadoService, private messageService: MessageService) { }
 
   ngOnInit() {
 
-    this.getListaRadicadoByPeticion();
-    this.getListaRadicadoByReclamo();
-    this.getListaRadicadoByQueja();
     this.getAllEstados();
+    this.loadInitialData();
+
+  }
+
+
+  /**
+   * Carga anidada de toda la info
+   */
+  loadInitialData() {
+
+    let aux = forkJoin([
+      this.getListaRadicadoByPeticion(),
+      this.getListaRadicadoByPeticion(),
+      this.getListaRadicadoByReclamo(),
+      this.getListaRadicadoByReclamo(),
+      this.getListaRadicadoByQueja(),
+      this.getListaRadicadoByQueja(),
+      this.getListaRadicadoSugerencia(),
+      this.getListaRadicadoSugerencia(),
+    ]);
+    aux.subscribe(([
+      loadRadicado,
+      loadRadicado2,
+      loadRadicadoReclamo,
+      loadRadicadoReclamo2,
+      loadRadicadoQueja,
+      loadRadicadoQueja2,
+      loadRadicadoSugerencia,
+      loadRadicadoSugerencia2
+
+    ]) => {
+      setTimeout(() => {
+        this.loadRadicado = loadRadicado
+        this.loadRadicado2 = loadRadicado2
+        this.loadRadicadoReclamo = loadRadicadoReclamo
+        this.loadRadicadoReclamo2 = loadRadicadoReclamo2
+        this.loadRadicadoQueja = loadRadicadoQueja
+        this.loadRadicadoQueja2 = loadRadicadoQueja2
+        this.loadRadicadoSugerencia = loadRadicadoSugerencia
+        this.loadRadicadoSugerencia2 = loadRadicadoSugerencia2
+        this.loading = false
+      }, 1200)
+
+
+    });
+
   }
 
   /**
@@ -64,16 +117,7 @@ export class DashboardRadicadoComponent implements OnInit {
    */
 
   getListaRadicadoByPeticion() {
-    this.listaService.getListaRadicadoByPeticion().subscribe(response => {
-      setTimeout(() => {
-        this.loadRadicado = response,
-          this.loadRadicado2 = response,
-          this.loading = false;
-        console.log(response);
-      }, 1000);
-
-    });
-
+    return this.listaService.getListaRadicadoByPeticion();
 
   }
 
@@ -82,16 +126,7 @@ export class DashboardRadicadoComponent implements OnInit {
   */
 
   getListaRadicadoByReclamo() {
-    this.listaService.getListaRadicadoByReclamo().subscribe(response => {
-      setTimeout(() => {
-        this.loadRadicadoReclamo = response,
-        this.loadRadicadoReclamo2 = response,
-          this.loading = false;
-        console.log(response);
-
-      }, 1500)
-
-    });
+    return this.listaService.getListaRadicadoByReclamo()
 
   }
 
@@ -100,25 +135,25 @@ export class DashboardRadicadoComponent implements OnInit {
    */
 
   getListaRadicadoByQueja() {
-    this.listaService.getListaRadicadoByQueja().subscribe(response => {
-      setTimeout(() => {
-        this.loadRadicadoQueja = response,
-        this.loadRadicadoQueja2 = response,
-          this.loading = false;
-        console.log(response);
-
-      }, 1700)
-    });
-
+    return this.listaService.getListaRadicadoByQueja()
   }
+
+  /**
+  * Lista de solicitudes radicadas por Sugerencia
+  */
+  getListaRadicadoSugerencia() {
+    return this.listaService.getListaRadicadoBySugerencia()
+  }
+
   /**
    * Lista de estados
    */
+
   getAllEstados() {
-    this.generalEstadoRadicado.getAllEstados().subscribe(response => {
-      this.loadEstados = response
-      console.log(response, 'estados')
-    })
+    return this.generalEstadoRadicado.getAllEstados()
+      .subscribe(response => {
+        this.loadEstados = response
+      })
   }
 
   /**

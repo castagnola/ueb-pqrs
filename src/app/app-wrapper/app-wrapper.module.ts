@@ -39,7 +39,7 @@ import { ChartsDemoComponent } from '../demo/view/chartsdemo.component';
 import { EmptyDemoComponent } from '../demo/view/emptydemo.component';
 import { FileDemoComponent } from '../demo/view/filedemo.component';
 import { UtilsDemoComponent } from '../demo/view/utilsdemo.component';
-import { LoginComponent } from '../login/containers';
+import { LoginComponent, containers } from '../login/containers';
 import { CarService } from '../demo/service/carservice';
 import { CountryService } from '../demo/service/countryservice';
 import { EventService } from '../demo/service/eventservice';
@@ -50,12 +50,13 @@ import { AppWrapperComponent } from './containers/app-wrapper/app-wrapper.compon
 import { DocumentationComponent } from '../demo/view/documentation.component';
 import { AppFooterComponent } from '../app.footer.component';
 import { AppMenuRadicadoComponent } from '../app-menu-radicado/app-menu-radicado.component';
-import { DashboardRadicadoComponent } from '../dashboard-radicado/containers/dashboard-radicado/dashboard-radicado.component';
-import { ListaRadicadoComponent } from '../dashboard-radicado/components/lista-radicado/lista-radicado.component';
-import { ListaRadicadoDosComponent } from '../dashboard-radicado/components/lista-radicado-dos/lista-radicado-dos.component';
-import { ListaRadicadoTresComponent } from '../dashboard-radicado/components/lista-radicado-tres/lista-radicado-tres.component';
 import {MessageService} from 'primeng/api';
 
+/**
+ * Imports listas radicados
+ */
+import * as fromComponentsListaRadicado from '../dashboard-radicado/components/';
+import * as fromContainersListaRadicado from '../dashboard-radicado/containers';
 
 
 
@@ -159,10 +160,8 @@ import {MessageService} from 'primeng/api';
       DocumentationComponent,
       AppWrapperComponent,
       AppMenuRadicadoComponent,
-      DashboardRadicadoComponent,
-      ListaRadicadoComponent,
-      ListaRadicadoDosComponent,
-      ListaRadicadoTresComponent
+      ...fromContainersListaRadicado.containers,
+      ...fromComponentsListaRadicado.components
 
 
   ],

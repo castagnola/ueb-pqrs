@@ -30,6 +30,13 @@ export class ListaRadicadoService {
     return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-reclamo`)
   }
 
+    /**
+   * servicio para la lista de radicados por sugerencia
+   */
+  getListaRadicadoBySugerencia():Observable<RadicadoModel> {
+    return this.http.get<RadicadoModel>(`${environment.apiUrl}/dashboard-radicado/get-lista-radicado-sugerencia`)
+  }
+
   /**
    * servicio para la lista de radicados por queja
    */

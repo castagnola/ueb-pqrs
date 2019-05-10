@@ -24,7 +24,6 @@ import { MessageModule } from 'primeng/message';
 import { SnotifyModule, ToastDefaults, SnotifyService } from 'ng-snotify';
 import { ListaRadicadoService } from './dashboard-radicado/service/lista-radicado/lista-radicado.service';
 import { EstadoRadicadoService } from './shared/services/estado-radicado/estado-radicado.service';
-import { GenerarRadicadoComponent } from './generar-radicado/components/generar-radicado/generar-radicado.component';
 
 @NgModule({
     imports: [
@@ -55,7 +54,6 @@ import { GenerarRadicadoComponent } from './generar-radicado/components/generar-
         LoginComponent,
         RadicadoDetalleComponent,
         RadicadoComponent,
-        GenerarRadicadoComponent
     ],
 
     providers: [LoginService, RadicadoService, AuxRadicadoService,ListaRadicadoService,EstadoRadicadoService,
